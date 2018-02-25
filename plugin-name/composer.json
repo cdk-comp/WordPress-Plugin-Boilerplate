@@ -1,0 +1,15 @@
+{
+    "name": "cdk/courses",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+          "name": "CDK Comp",
+          "email": "cdk@cdk.co.il",
+          "homepage": "https://github.com/dimaminka"
+        }
+    ],
+    "require": {
+        "htmlburger/carbon-fields": "*"
+    }
+}

@@ -20,6 +20,10 @@
  * @subpackage Plugin_Name/admin
  * @author     Your Name <email@example.com>
  */
+
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
+
 class Plugin_Name_Admin {
 
 	/**
@@ -99,5 +103,27 @@ class Plugin_Name_Admin {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
+
+    /**
+     * Loads Carbon Fields
+     *
+     * @since    1.0.0
+     */
+    public function load_carbon() {
+        \Carbon_Fields\Carbon_Fields::boot();
+    }
+
+    //TODO: add carbon fields register functions here
+    /**
+     * Add some theme options (for demonstration)
+     *
+     * @since    1.0.0
+     */
+    public function theme_options() {
+        Container::make( 'theme_options', __( 'Theme Options', 'plugin-name' ) )
+                 ->add_fields( array(
+                     Field::make( 'text', 'theme_option', __( 'Text Theme Option', 'plugin-name' ) ),
+                 ) );
+    }
 
 }
